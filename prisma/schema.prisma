@@ -1,0 +1,196 @@
+// Twinkle Toe Love – Baby Wellness Spa
+// Prisma schema for production-ready booking system
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String
+  shortDescription String?
+  pricePence  Int      // price in GBP pence (e.g. 1800 = £18.00)
+  durationMin Int      // default 45
+  ageBand     String   // e.g. "3–12 months"
+  capacityDefault Int  // default max pairs per slot
+  isActive    Boolean  @default(true)
+  isDraft     Boolean  @default(true) // sample/draft until admin confirms
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  slots       Slot[]
+  bookings    Booking[]
+
+  @@index([isActive])
+  @@index([slug])
+}
+
+model Slot {
+  id             String   @id @default(cuid())
+  serviceId      String
+  service        Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  startDateTime  DateTime // stored in UTC, displayed in Europe/London
+  endDateTime    DateTime // computed from start + duration
+  capacity       Int      // max parent-and-baby pairs
+  availableSpaces Int     // remaining spaces (atomic updates)
+  isBlocked      Boolean  @default(false)
+  blockReason    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  bookings       Booking[]
+
+  @@index([serviceId, startDateTime])
+  @@index([startDateTime])
+  @@unique([serviceId, startDateTime])
+}
+
+model Booking {
+  id               String   @id @default(cuid())
+  reference        String   @unique // e.g. TTL-20261028-ABCD1234
+  serviceId        String
+  service          Service  @relation(fields: [serviceId], references: [id])
+  slotId           String
+  slot             Slot     @relation(fields: [slotId], references: [id], onDelete: Cascade)
+  status           BookingStatus @default(PENDING)
+  pairsCount       Int      // number of parent-and-baby pairs
+  totalPence       Int      // total amount in GBP pence
+  currency         String   @default("gbp")
+  guardianName     String
+  guardianEmail    String
+  guardianPhone    String?
+  babyAgeMonths    Int?
+  marketingConsent Boolean  @default(false)
+  holdsUntil       DateTime? // pending reservation expiry
+  stripeSessionId  String?  @unique
+  stripePaymentIntentId String? @unique
+  paidAt           DateTime?
+  cancelledAt      DateTime?
+  refundedAt       DateTime?
+  notes            String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  payment          Payment?
+  attendee         Attendee?
+
+  @@index([status])
+  @@index([reference])
+  @@index([stripeSessionId])
+  @@index([guardianEmail])
+  @@index([createdAt])
+}
+
+enum BookingStatus {
+  PENDING    // reservation held, awaiting payment
+  CONFIRMED  // payment verified via webhook
+  EXPIRED    // pending hold expired without payment
+  CANCELLED  // cancelled by customer or admin
+  REFUNDED   // refunded via Stripe
+}
+
+model Payment {
+  id                String   @id @default(cuid())
+  bookingId         String   @unique
+  booking           Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  stripeSessionId   String   @unique
+  stripePaymentIntentId String @unique
+  amountPence       Int
+  currency          String   @default("gbp")
+  status            PaymentStatus
+  receiptUrl        String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([stripeSessionId])
+  @@index([status])
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+model Attendee {
+  id               String   @id @default(cuid())
+  bookingId        String   @unique
+  booking          Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  guardianName     String
+  guardianEmail    String
+  guardianPhone    String?
+  babyAgeMonths    Int?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model StripeEvent {
+  id        String   @id @default(cuid())
+  eventId   String   @unique // Stripe event id for idempotency
+  type      String
+  processed Boolean  @default(false)
+  processedAt DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([eventId])
+  @@index([processed])
+}
+
+model AdminUser {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String
+  role          String   @default("admin") // admin, owner
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  lastLoginAt   DateTime?
+
+  @@index([email])
+  @@index([isActive])
+}
+
+model BlockDate {
+  id        String   @id @default(cuid())
+  date      DateTime @unique // a specific date (start of day UTC) that is blocked
+  reason    String?
+  createdAt DateTime @default(now())
+
+  @@index([date])
+}
+
+model Config {
+  id          String   @id @default(cuid())
+  bookingsEnabled   Boolean  @default(false)
+  paymentsMode      String   @default("test") // "test" or "live"
+  defaultCapacity   Int      @default(4)
+  holdMinutes       Int      @default(25) // pending reservation hold window
+  currency          String   @default("gbp")
+  timezone          String   @default("Europe/London")
+  siteTitle         String   @default("Twinkle Toe Love – Baby Wellness Spa")
+  siteTagline       String   @default("Little wonders. Big discoveries.")
+  venueStatus       String   @default("coming-soon") // "coming-soon" | "confirmed"
+  venueNotice       String?  @default("Coming to Nottingham / West Bridgford — venue to be confirmed.")
+  updatedAt       DateTime @updatedAt
+}
+
+model WaitlistEntry {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  marketingConsent Boolean @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([email])
+  @@index([createdAt])
+}
