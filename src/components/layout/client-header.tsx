@@ -34,7 +34,7 @@ export function ClientHeader() {
       )}
     >
       <div className="flex flex-col">
-        <div className="flex items-center justify-between px-4 py-1 md:px-6 md:py-4">
+        <div className="flex items-center justify-between px-4 py-0.5 md:px-6 md:py-3">
           {/* Brand lockup — text-based with heart motif */}
           <Link
             href="/"
@@ -42,13 +42,13 @@ export function ClientHeader() {
             aria-label="Twinkle Toe Love – Baby Wellness Spa home"
           >
             <div className="flex items-center justify-center">
-              <Heart className="h-3 w-3 text-rose-pink" aria-hidden="true" />
+              <Heart className="h-2.5 w-2.5 text-rose-pink" aria-hidden="true" />
             </div>
             <div>
-              <span className="block font-serif font-semibold text-forest-green text-sm tracking-tight leading-none md:text-lg">
+              <span className="block font-serif font-semibold text-forest-green text-xs tracking-tight leading-none md:text-lg">
                 Twinkle Toe Love
               </span>
-              <span className="block text-[7px] font-body font-medium text-sage uppercase tracking-widest leading-none">
+              <span className="block text-[6px] font-body font-medium text-sage uppercase tracking-widest leading-none">
                 Baby Wellness Spa
               </span>
             </div>
@@ -81,7 +81,7 @@ export function ClientHeader() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-1.5 text-forest-green"
+            className="md:hidden p-1 text-forest-green"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             onClick={() => setIsOpen(!isOpen)}
           >
