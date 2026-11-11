@@ -229,6 +229,7 @@ export default function Home() {
                   alt="Calm studio interior — illustrative concept image"
                   width={700}
                   height={467}
+                  priority
                   className="w-full h-full object-cover"
                 />
               </ImageFrame>
