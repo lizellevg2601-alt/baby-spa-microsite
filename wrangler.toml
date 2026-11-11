@@ -1,11 +1,11 @@
-# Cloudflare Pages configuration for Twinkle Toe Love Baby Wellness Spa
+# Cloudflare Worker configuration for Twinkle Toe Love Baby Wellness Spa
 name = "twinkle-toe-love-baby-spa"
-compatibility_date = "2026-10-29"
+account_id = "c3974c9f555d3c107ece3f4f48defb23"
+compatibility_date = "2026-11-11"
 compatibility_flags = ["nodejs_compat"]
 
-[build]
-command = "npm run build"
-directory = ".next"
+[assets]
+directory = "out"
 
 [[d1_databases]]
 binding = "DB"

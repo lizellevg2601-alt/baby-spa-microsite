@@ -169,16 +169,15 @@ export default function Home() {
                 Meet Tanya
               </SerifHeading>
               <SerifText size="lg" align="left" color="sage" className="mb-8 leading-7">
-                Baby Massage Therapist & Mum of Two
+                Mum of Two & Founder
               </SerifText>
 
               <div className="space-y-6">
                 <p className="text-sm text-sage-600 leading-7">
-                  Tanya is a qualified infant massage therapist with specialist
-                  training in nurturing touch for babies from newborn to
-                  pre-crawling. Her approach is calm, unhurried and always
-                  baby-led — she follows your little one&rsquo;s cues, never
-                  rushing a moment that needs to linger.
+                  Tanya brings warmth, patience and lived experience to every
+                  session. As a mum of two, she knows the early months are equal
+                  parts wonder and uncertainty, and she creates a space where
+                  parents feel seen, supported and never judged.
                 </p>
                 <p className="text-sm text-sage-600 leading-7">
                   As a mum of two, Tanya knows that the early months are equal
@@ -197,11 +196,6 @@ export default function Home() {
 
               <div className="mt-10 grid md:grid-cols-4 gap-6">
                 <WellnessIcon
-                  icon="sparkles"
-                  label="Qualified therapist"
-                  caption="Specialist infant massage training"
-                />
-                <WellnessIcon
                   icon="heart"
                   label="Mum of two"
                   caption="Parenting experience you can trust"
@@ -215,6 +209,11 @@ export default function Home() {
                   icon="calm"
                   label="Calm space"
                   caption="Soothing, screen-free studio"
+                />
+                <WellnessIcon
+                  icon="sparkles"
+                  label="Warm welcome"
+                  caption="Parents feel seen and supported"
                 />
               </div>
             </div>
