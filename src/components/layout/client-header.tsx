@@ -34,21 +34,21 @@ export function ClientHeader() {
       )}
     >
       <div className="flex flex-col">
-        <div className="flex items-center justify-between px-4 py-3 md:px-6 md:py-4">
+        <div className="flex items-center justify-between px-4 py-2 md:px-6 md:py-4">
           {/* Brand lockup — text-based with heart motif */}
           <Link
             href="/"
-            className="flex items-center gap-2"
+            className="flex items-center gap-1.5"
             aria-label="Twinkle Toe Love – Baby Wellness Spa home"
           >
             <div className="flex items-center justify-center">
               <Heart className="h-4 w-4 text-rose-pink" aria-hidden="true" />
             </div>
             <div>
-              <span className="block font-serif font-semibold text-forest-green text-lg tracking-tight leading-none">
+              <span className="block font-serif font-semibold text-forest-green text-base tracking-tight leading-none md:text-lg">
                 Twinkle Toe Love
               </span>
-              <span className="block text-[9px] font-body font-medium text-sage uppercase tracking-widest leading-none">
+              <span className="block text-[8px] font-body font-medium text-sage uppercase tracking-widest leading-none">
                 Baby Wellness Spa
               </span>
             </div>
