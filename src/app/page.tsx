@@ -65,11 +65,11 @@ export default function Home() {
       {/* Section 1 — Luxury editorial hero */}
       <SectionWrapper
         bg="ivory"
-        className="relative section-padding-compact overflow-hidden"
+        className="relative pt-6 pb-12 overflow-hidden"
       >
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="relative max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-24 items-center">
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-24 items-center">
               {/* Text side — Left on desktop */}
               <div className="text-center md:text-left animate-reveal">
                 <Eyebrow className="md:mx-0">Premium baby development & sensory studio</Eyebrow>
@@ -78,7 +78,7 @@ export default function Home() {
                   weight="700"
                   align="center"
                   color="forest"
-                  className="mb-6 md:mb-8"
+                  className="mb-4 md:mb-6"
                 >
                   Little wonders.<br />
                   <span className="text-rose-pink">Big discoveries.</span>
@@ -87,14 +87,14 @@ export default function Home() {
                   size="lg"
                   align="center"
                   color="sage"
-                  className="mb-8 max-w-lg md:mx-0 leading-7"
+                  className="mb-6 max-w-lg md:mx-0 leading-7"
                 >
                   A little space for them to discover. A beautiful moment for you to share.
                 </SerifText>
-                <p className="text-sm text-sage-600 mb-10 max-w-lg md:mx-0 leading-7">
+                <p className="text-sm text-sage-600 mb-8 max-w-lg md:mx-0 leading-7">
                   Twinkle Toe Love is a gentle baby development and sensory studio coming to Nottingham / West Bridgford. We offer calm, nurturing experiences — sensory play, movement and parent-and-baby bonding — in small, welcoming groups.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                   <Button
                     asChild
                     variant="forest"
@@ -119,8 +119,8 @@ export default function Home() {
               </div>
 
               {/* Image side — Right on desktop */}
-              <div className="relative h-[400px] md:h-[640px] flex items-center justify-center animate-reveal-delay-2">
-                <ImageFrame aspect="4-3" variant="none" className="h-full w-full shadow-xl">
+              <div className="relative flex items-center justify-center animate-reveal-delay-2">
+                <ImageFrame aspect="4-3" variant="none" className="h-full w-full max-w-md shadow-xl">
                   <BoutiqueImage
                     src="/images/baby-spa/baby-bonding-hands.png"
                     webpSrc="/images/baby-spa/baby-bonding-hands.webp"
@@ -430,7 +430,7 @@ function ExperienceCard({
       href="/contact"
       className="group flex flex-col h-full rounded-2xl border border-pale-sage/30 bg-white transition-all hover:border-forest-green/50 hover:shadow-sm"
     >
-      <div className="relative h-36 md:h-44 overflow-hidden rounded-t-2xl">
+      <div className="relative h-32 md:h-44 overflow-hidden rounded-t-2xl">
         <BoutiqueImage
           src={image}
           alt={imageAlt}
@@ -510,7 +510,7 @@ function ExtraFeature({
   const descColor = textColor === "white" ? "text-warm-ivory/90" : "text-sage-600";
 
   return (
-    <div className="relative h-44 md:h-52 overflow-hidden rounded-2xl border border-pale-sage/50 bg-white">
+    <div className="relative h-40 md:h-52 overflow-hidden rounded-2xl border border-pale-sage/50 bg-white">
       <BoutiqueImage
         src={image}
         alt={alt}

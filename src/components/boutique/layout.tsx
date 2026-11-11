@@ -76,7 +76,7 @@ export function SerifHeading({
     "3xl": "clamp(1.75rem, 3.5vw, 2.5rem)",   // 28–40px
     "4xl": "clamp(2rem, 4vw, 3rem)",          // 32–48px
     "5xl": "clamp(2.5rem, 5vw, 3.75rem)",     // 40–60px
-    "6xl": "clamp(3rem, 6vw, 4.5rem)",        // 48–72px
+    "6xl": "clamp(2.5rem, 6vw, 3.75rem)",      // 40–60px
   };
   const colors = {
     forest: "text-forest-green",
