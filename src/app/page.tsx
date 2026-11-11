@@ -20,10 +20,10 @@ const SERVICES = [
     name: "Little Explorers Sensory",
     duration: "45 min",
     price: "£18",
-    priceNote: "sample, per pair",
+    priceNote: "indicative, per pair",
     ageBand: "3–12 months",
     description:
-      "Gentle sensory discovery through age-appropriate textures, sounds and colours, guided by our facilitators in a calm setting.",
+      "A world of gentle discovery through textures, sounds and playful sensory moments, shared together.",
     image: "/images/baby-spa/little-explorers-sensory.png",
     imageAlt: "Sensory play materials for babies",
   },
@@ -32,24 +32,24 @@ const SERVICES = [
     name: "Touch & Togetherness",
     duration: "45 min",
     price: "£25",
-    priceNote: "sample, per pair",
+    priceNote: "indicative, per pair",
     ageBand: "6 weeks–12 months",
     description:
-      "Parent-led baby massage, connection and calming routines facilitated by a properly qualified instructor.",
-    image: "/images/baby-spa/touch-and-togetherness.png",
-    imageAlt: "Parent and baby during massage session",
+      "A calming, parent-led experience centred on nurturing touch, connection and precious moments together.",
+    image: "/images/baby-spa/baby-feet-wellness.png",
+    imageAlt: "Parent gently massaging baby's feet in a calm setting",
   },
   {
     id: "wonder-and-wiggle",
     name: "Wonder & Wiggle",
     duration: "45 min",
     price: "£22",
-    priceNote: "sample, per pair",
+    priceNote: "indicative, per pair",
     ageBand: "3–18 months",
     description:
-      "Gentle movement, age-appropriate tummy-time activities and sensory exploration designed for physical discovery.",
-    image: "/images/baby-spa/placeholder-experiences.png",
-    imageAlt: "Gentle movement activity for babies",
+      "Playful movement and age-appropriate activities that encourage little bodies to explore, stretch and discover.",
+    image: "/images/baby-spa/wonder-and-wiggle.png",
+    imageAlt: "Baby enjoying gentle movement on a soft play mat",
   },
 ];
 
@@ -334,7 +334,7 @@ export default function Home() {
       >
         <Container className="max-w-6xl">
           <div className="text-center mb-12">
-            <Eyebrow>Thoughtful little extras</Eyebrow>
+            <Eyebrow>A little something for you, too.</Eyebrow>
             <SerifHeading
               size="3xl"
               weight="700"
@@ -342,27 +342,27 @@ export default function Home() {
               color="forest"
               className="mb-6"
             >
-              Coming with the studio launch
+              Beautiful little touches we're planning for your visits.
             </SerifHeading>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-12">
             <ExtraFeature
               image="/images/baby-spa/product-coffee-corner.png"
-              alt="Coffee corner illustration"
-              title="Coffee corner"
-              description="A warm drink while your little one settles in — a quiet moment for you."
+              alt="Coffee served in a cream ceramic cup"
+              title="A moment to unwind"
+              description="A quiet coffee corner for a well-deserved pause."
             />
             <ExtraFeature
               image="/images/baby-spa/product-baby-items.png"
-              alt="Baby products illustration"
-              title="Curated baby products"
-              description="Carefully selected items to support sensory play at home."
+              alt="Carefully chosen baby gifts and sensory essentials"
+              title="Thoughtful little finds"
+              description="Carefully chosen gifts and sensory essentials for little ones."
             />
           </div>
 
-          <p className="mt-8 text-xs text-sage-400 text-center leading-6">
-            Planned features for the studio opening — not yet operational.
+          <p className="mt-10 text-xs text-sage-400 text-center leading-6">
+            Planned for the studio opening.
           </p>
         </Container>
       </SectionWrapper>
@@ -427,49 +427,42 @@ function ExperienceCard({
   return (
     <Link
       href="/contact"
-      className="group relative flex flex-col h-full rounded-2xl border border-pale-sage bg-white transition-all hover:border-forest-green/50 hover:shadow-lg"
+      className="group flex flex-col h-full rounded-2xl border border-pale-sage/30 bg-white transition-all hover:border-forest-green/50 hover:shadow-sm"
     >
-      <div className="relative h-48 overflow-hidden rounded-t-2xl">
+      <div className="relative h-44 overflow-hidden rounded-t-2xl">
         <BoutiqueImage
           src={image}
           alt={imageAlt}
-          width={600}
-          height={450}
+          width={700}
+          height={525}
           priority
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
-        <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5">
-          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white text-forest-green text-[10px] font-body font-bold shadow-sm">
-            {duration}
-          </span>
-        </div>
       </div>
       <div className="p-5 flex flex-col flex-1">
-        <div className="flex items-start gap-2 mb-3">
-          <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-blush-100 text-rose-pink text-[10px] font-body font-semibold uppercase tracking-wider">
-            Provisional pricing
-          </span>
-        </div>
-        <h3 className="font-serif font-semibold text-forest-green text-lg mb-3 leading-tight">
+        <h3 className="font-serif font-semibold text-forest-green text-lg mb-2 leading-tight">
           {name}
         </h3>
-        <p className="text-sm text-sage-600 mb-4 flex-1 leading-6">
+        <p className="text-sm text-sage-600 mb-3 flex-1 leading-6">
           {description}
         </p>
-        <div className="space-y-2 mb-6">
-          <div className="flex items-start gap-2 text-xs text-sage-500 leading-5">
-            <span className="flex-shrink-0">Age:</span>
-            <span>{ageBand}</span>
-          </div>
+        <div className="flex items-start gap-2 text-xs text-sage-500 leading-5 mb-4">
+          <span className="flex-shrink-0">Age:</span>
+          <span>{ageBand}</span>
+          <span className="flex-shrink-0">·</span>
+          <span>{duration}</span>
         </div>
-        <div className="mt-auto pt-4 border-t border-pale-sage flex items-baseline gap-1">
-          <span className="font-serif font-bold text-forest-green text-xl">
+        <div className="mt-auto flex items-baseline gap-1">
+          <span className="font-serif font-bold text-forest-green text-lg">
             {price}
           </span>
-          <span className="text-xs text-sage uppercase tracking-wider">
-            {priceNote}
+          <span className="text-[10px] text-sage-400 uppercase tracking-wider">
+            Indicative price
           </span>
         </div>
+        <Button asChild variant="outline" size="sm" className="mt-4 w-full text-center">
+          <Link href="/contact">Discover this experience</Link>
+        </Button>
       </div>
     </Link>
   );
@@ -511,21 +504,21 @@ function ExtraFeature({
   description: string;
 }) {
   return (
-    <div className="rounded-2xl border border-pale-sage bg-white p-6">
-      <div className="relative h-32 overflow-hidden rounded-xl border border-pale-sage/50 bg-white mb-4">
-        <BoutiqueImage
-          src={image}
-          alt={alt}
-          width={400}
-          height={300}
-          priority
-          className="w-full h-full object-cover"
-        />
+    <div className="relative h-52 overflow-hidden rounded-2xl border border-pale-sage/50 bg-white">
+      <BoutiqueImage
+        src={image}
+        alt={alt}
+        width={700}
+        height={400}
+        priority
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 flex flex-col justify-end p-6">
+        <h4 className="font-serif font-semibold text-forest-green text-lg mb-1 leading-none">
+          {title}
+        </h4>
+        <p className="text-sm text-sage-600 leading-6">{description}</p>
       </div>
-      <h4 className="font-serif font-semibold text-forest-green text-base mb-2">
-        {title}
-      </h4>
-      <p className="text-sm text-sage-600 leading-6">{description}</p>
     </div>
   );
 }
