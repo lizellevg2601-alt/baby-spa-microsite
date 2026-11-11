@@ -352,12 +352,14 @@ export default function Home() {
               alt="Coffee served in a cream ceramic cup"
               title="A moment to unwind"
               description="A quiet coffee corner for a well-deserved pause."
+              textColor="white"
             />
             <ExtraFeature
               image="/images/baby-spa/product-baby-items.png"
               alt="Carefully chosen baby gifts and sensory essentials"
               title="Thoughtful little finds"
               description="Carefully chosen gifts and sensory essentials for little ones."
+              textColor="white"
             />
           </div>
 
@@ -497,12 +499,17 @@ function ExtraFeature({
   alt,
   title,
   description,
+  textColor = "forest",
 }: {
   image: string;
   alt: string;
   title: string;
   description: string;
+  textColor?: "forest" | "white";
 }) {
+  const titleColor = textColor === "white" ? "text-warm-ivory" : "text-forest-green";
+  const descColor = textColor === "white" ? "text-warm-ivory/90" : "text-sage-600";
+
   return (
     <div className="relative h-52 overflow-hidden rounded-2xl border border-pale-sage/50 bg-white">
       <BoutiqueImage
@@ -514,10 +521,10 @@ function ExtraFeature({
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 flex flex-col justify-end p-6">
-        <h4 className="font-serif font-semibold text-forest-green text-lg mb-1 leading-none">
+        <h4 className={`font-serif font-semibold ${titleColor} text-lg mb-1 leading-none`}>
           {title}
         </h4>
-        <p className="text-sm text-sage-600 leading-6">{description}</p>
+        <p className={`text-sm ${descColor} leading-6`}>{description}</p>
       </div>
     </div>
   );
