@@ -330,10 +330,34 @@ function WellnessIcon({
     calm: "text-blush-400",
   };
 
+  // Modern, minimalistic icons — simple geometric shapes instead of detailed line art
+  const minimalIcons: Record<string, React.ReactNode> = {
+    sparkles: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l3 7l7 -3l-3 7l-7 3l-3 -7z" />
+      </svg>
+    ),
+    heart: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+    ),
+    hand: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 18a6 6 0 0 0 6-6v-2a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2a6 6 0 0 0 6 6z" />
+      </svg>
+    ),
+    calm: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+      </svg>
+    ),
+  };
+
   return (
     <div className="text-center">
-      <div className={cn("flex items-center justify-center w-8 h-8 rounded-full mx-auto mb-3", iconColors[icon])}>
-        {icons[icon]}
+      <div className={cn("flex items-center justify-center w-10 h-10 rounded-full mx-auto mb-3", iconColors[icon])}>
+        {minimalIcons[icon]}
       </div>
       <h4 className="font-serif font-semibold text-forest-green text-xs leading-none mb-1">
         {label}

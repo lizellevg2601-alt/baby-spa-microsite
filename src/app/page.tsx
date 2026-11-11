@@ -14,7 +14,6 @@ import {
   BoutiqueImage,
   ImageFrame,
 } from "@/components/boutique/image";
-import { ArrowRight } from "lucide-react";
 
 const SERVICES = [
   {
@@ -50,7 +49,7 @@ const SERVICES = [
     ageBand: "3–18 months",
     description:
       "Gentle movement, age-appropriate tummy-time activities and sensory exploration designed for physical discovery.",
-    image: "/images/baby-spa/hero-studio.png",
+    image: "/images/baby-spa/placeholder-experiences.png",
     imageAlt: "Gentle movement activity for babies",
   },
 ];
@@ -91,29 +90,32 @@ export default function Home() {
       <SectionWrapper bg="ivory" className="pt-12 md:pt-24 pb-20 md:pb-32 overflow-hidden">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="relative max-w-5xl mx-auto">
+            {/* Hero backdrop — subtle gradient fading right for text legibility */}
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-warm-ivory/90 via-warm-ivory/60 to-transparent pointer-events-none"></div>
+
             <div
-              className="absolute inset-0 -z-10 bg-blush-50/30 rounded-[30%] blur-3xl"
-              style={{ top: "-10%", right: "-10%", width: "600px", height: "600px" }}
+              className="absolute inset-0 -z-20 bg-blush-50/20 rounded-[35%] blur-4xl"
+              style={{ top: "-15%", right: "-15%", width: "700px", height: "700px" }}
             ></div>
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
               {/* Image side */}
-              <div className="relative h-[400px] md:h-[560px] flex items-center justify-center animate-reveal-delay-2">
-                <ImageFrame aspect="4-3" variant="sage" className="h-full w-full shadow-lg">
+              <div className="relative h-[520px] md:h-[720px] flex items-center justify-center animate-reveal-delay-2">
+                <ImageFrame aspect="4-3" variant="sage" className="h-full w-full shadow-2xl">
                   <BoutiqueImage
                     src="/images/baby-spa/hero-studio.png"
                     webpSrc="/images/baby-spa/hero-studio.webp"
                     alt="Baby feet in a soft blanket — calm studio environment"
-                    width={800}
-                    height={600}
+                    width={1000}
+                    height={750}
                     priority
                     className="h-full w-full object-cover"
                   />
                 </ImageFrame>
-                <div className="absolute -inset-px rounded-2xl border border-blush-200/60 pointer-events-none"></div>
+                <div className="absolute -inset-px rounded-2xl border border-blush-200/40 pointer-events-none"></div>
               </div>
 
               {/* Text side */}
-              <div className="flex flex-col justify-center animate-reveal">
+              <div className="relative z-10 flex flex-col justify-center animate-reveal">
                 <Eyebrow>Premium baby development & sensory studio</Eyebrow>
                 <SerifHeading size="5xl" weight="700" align="left" color="forest" className="mb-6">
                   Little wonders.<br />
@@ -124,18 +126,11 @@ export default function Home() {
                   meaningful bonding, in small groups for babies and their
                   parents.
                 </SerifText>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild variant="forest" size="lg" className="w-full sm:w-auto">
-                    <Link href="/contact">
-                      <HeartIcon size={18} /> Join the waitlist
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                    <Link href="/contact">
-                      Register interest <ArrowRight className="h-4 w-4 ml-2" />
-                    </Link>
-                  </Button>
-                </div>
+                <Button asChild variant="forest" size="lg" className="w-full sm:w-auto">
+                  <Link href="/contact">
+                    <HeartIcon size={18} /> Join the waitlist
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -296,8 +291,12 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="rounded-xl border border-pale-sage bg-warm-ivory p-8 text-center">
-              <div className="w-12 h-12 rounded-full bg-sage-100 flex items-center justify-center text-sage-700 mx-auto mb-4">
-                <span className="text-lg">☕</span>
+              <div className="w-12 h-12 rounded-full bg-sage-100 flex items-center justify-center mx-auto mb-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-sage-700">
+                  <path d="M5 17h6a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2z" />
+                  <path d="M7 10v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2" />
+                  <path d="M9 17h2v2H9z" />
+                </svg>
               </div>
               <h4 className="font-serif font-semibold text-forest-green text-base mb-2">Coffee corner</h4>
               <p className="text-sm text-sage-600 leading-6">
@@ -306,8 +305,11 @@ export default function Home() {
               </p>
             </div>
             <div className="rounded-xl border border-pale-sage bg-warm-ivory p-8 text-center">
-              <div className="w-12 h-12 rounded-full bg-blush-100 flex items-center justify-center text-rose-pink mx-auto mb-4">
-                <span className="text-lg">🎁</span>
+              <div className="w-12 h-12 rounded-full bg-blush-100 flex items-center justify-center mx-auto mb-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-rose-pink">
+                  <path d="M3 3h12l1 6h-4l-1 6H6l-1-6z" />
+                  <path d="M16 3a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8z" />
+                </svg>
               </div>
               <h4 className="font-serif font-semibold text-forest-green text-base mb-2">Baby products</h4>
               <p className="text-sm text-sage-600 leading-6">
@@ -519,10 +521,34 @@ function WellnessIcon({
     calm: "text-blush-400",
   };
 
+  // Modern, minimalistic icons — simple geometric shapes instead of detailed line art
+  const minimalIcons: Record<string, React.ReactNode> = {
+    sparkles: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l3 7l7 -3l-3 7l-7 3l-3 -7z" />
+      </svg>
+    ),
+    heart: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+    ),
+    hand: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 18a6 6 0 0 0 6-6v-2a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2a6 6 0 0 0 6 6z" />
+      </svg>
+    ),
+    calm: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+      </svg>
+    ),
+  };
+
   return (
     <div className="text-center">
-      <div className={cn("flex items-center justify-center w-8 h-8 rounded-full mx-auto mb-3", iconColors[icon])}>
-        {icons[icon]}
+      <div className={cn("flex items-center justify-center w-10 h-10 rounded-full mx-auto mb-3", iconColors[icon])}>
+        {minimalIcons[icon]}
       </div>
       <h4 className="font-serif font-semibold text-forest-green text-xs leading-none mb-1">
         {label}
