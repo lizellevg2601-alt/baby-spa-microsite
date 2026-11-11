@@ -69,7 +69,7 @@ export default function Home() {
       >
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="relative max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-24 items-center">
               {/* Text side — Left on desktop */}
               <div className="text-center md:text-left animate-reveal">
                 <Eyebrow className="md:mx-0">Premium baby development & sensory studio</Eyebrow>
@@ -77,7 +77,6 @@ export default function Home() {
                   size="6xl"
                   weight="700"
                   align="center"
-                  
                   color="forest"
                   className="mb-6 md:mb-8"
                 >
@@ -120,7 +119,7 @@ export default function Home() {
               </div>
 
               {/* Image side — Right on desktop */}
-              <div className="relative h-[520px] md:h-[640px] flex items-center justify-center animate-reveal-delay-2">
+              <div className="relative h-[400px] md:h-[640px] flex items-center justify-center animate-reveal-delay-2">
                 <ImageFrame aspect="4-3" variant="none" className="h-full w-full shadow-xl">
                   <BoutiqueImage
                     src="/images/baby-spa/baby-bonding-hands.png"
@@ -151,7 +150,7 @@ export default function Home() {
         className="section-padding border-t border-pale-sage"
       >
         <Container className="max-w-6xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 sm:mb-16">
             <Eyebrow>Discover our experiences</Eyebrow>
             <SerifHeading
               size="4xl"
@@ -172,7 +171,7 @@ export default function Home() {
             </SerifText>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-6 md:grid-cols-3 gap-8">
             {SERVICES.map((svc) => (
               <ExperienceCard
                 key={svc.id}
@@ -431,7 +430,7 @@ function ExperienceCard({
       href="/contact"
       className="group flex flex-col h-full rounded-2xl border border-pale-sage/30 bg-white transition-all hover:border-forest-green/50 hover:shadow-sm"
     >
-      <div className="relative h-44 overflow-hidden rounded-t-2xl">
+      <div className="relative h-36 md:h-44 overflow-hidden rounded-t-2xl">
         <BoutiqueImage
           src={image}
           alt={imageAlt}
@@ -511,7 +510,7 @@ function ExtraFeature({
   const descColor = textColor === "white" ? "text-warm-ivory/90" : "text-sage-600";
 
   return (
-    <div className="relative h-52 overflow-hidden rounded-2xl border border-pale-sage/50 bg-white">
+    <div className="relative h-44 md:h-52 overflow-hidden rounded-2xl border border-pale-sage/50 bg-white">
       <BoutiqueImage
         src={image}
         alt={alt}
@@ -520,7 +519,7 @@ function ExtraFeature({
         priority
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 flex flex-col justify-end p-6">
+      <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
         <h4 className={`font-serif font-semibold ${titleColor} text-lg mb-1 leading-none`}>
           {title}
         </h4>
