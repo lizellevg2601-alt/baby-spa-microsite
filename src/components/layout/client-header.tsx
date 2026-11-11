@@ -81,19 +81,27 @@ export function ClientHeader() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-1 text-forest-green"
+            type="button"
+            className="md:hidden inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-forest-green"
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-site-navigation"
+            onClick={() => setIsOpen((open) => !open)}
           >
-            {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
         {/* Mobile menu */}
         <div
+          id="mobile-site-navigation"
+          data-testid="mobile-site-navigation"
           className={cn(
-            "md:hidden border-t border-pale-sage/50 bg-warm-ivory overflow-hidden",
-            isOpen ? "max-height-2000 opacity-100" : "max-height-0 opacity-0 transition-all duration-300",
+            "md:hidden border-t border-pale-sage/50 bg-warm-ivory",
+            // The closed menu must be removed from layout and keyboard navigation.
+            // `max-height-0` was not a valid Tailwind utility and left a tall
+            // invisible menu above the homepage hero on small screens.
+            isOpen ? "block" : "hidden",
           )}
         >
           <div className="px-6 py-5 space-y-3">
