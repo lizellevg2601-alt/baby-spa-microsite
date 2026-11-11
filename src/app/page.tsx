@@ -291,12 +291,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="rounded-xl border border-pale-sage bg-warm-ivory p-8 text-center">
-              <div className="w-12 h-12 rounded-full bg-sage-100 flex items-center justify-center mx-auto mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-sage-700">
-                  <path d="M5 17h6a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2z" />
-                  <path d="M7 10v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2" />
-                  <path d="M9 17h2v2H9z" />
-                </svg>
+              <div className="relative h-40 overflow-hidden rounded-xl border border-sage-200 bg-white mb-4 mx-auto max-w-md">
+                <BoutiqueImage
+                  src="/images/baby-spa/product-coffee-corner.png"
+                  alt="Coffee corner illustration"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h4 className="font-serif font-semibold text-forest-green text-base mb-2">Coffee corner</h4>
               <p className="text-sm text-sage-600 leading-6">
@@ -305,11 +307,14 @@ export default function Home() {
               </p>
             </div>
             <div className="rounded-xl border border-pale-sage bg-warm-ivory p-8 text-center">
-              <div className="w-12 h-12 rounded-full bg-blush-100 flex items-center justify-center mx-auto mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-rose-pink">
-                  <path d="M3 3h12l1 6h-4l-1 6H6l-1-6z" />
-                  <path d="M16 3a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8z" />
-                </svg>
+              <div className="relative h-40 overflow-hidden rounded-xl border border-blush-200 bg-white mb-4 mx-auto max-w-md">
+                <BoutiqueImage
+                  src="/images/baby-spa/product-baby-items.png"
+                  alt="Baby products illustration"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h4 className="font-serif font-semibold text-forest-green text-base mb-2">Baby products</h4>
               <p className="text-sm text-sage-600 leading-6">
