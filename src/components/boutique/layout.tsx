@@ -70,12 +70,13 @@ export function SerifHeading({
   color = "forest",
   className,
 }: SerifHeadingProps) {
+  // Clamp-based responsive typography: desktop 64–76px hero, 42–56px section, etc.
   const sizes = {
-    "2xl": "text-3xl md:text-4xl",
-    "3xl": "text-4xl md:text-5xl",
-    "4xl": "text-5xl md:text-7xl",
-    "5xl": "text-6xl md:text-8xl",
-    "6xl": "text-7xl md:text-9xl",
+    "2xl": "clamp(1.5rem, 3vw, 2rem)",       // 24–32px
+    "3xl": "clamp(1.75rem, 3.5vw, 2.5rem)",   // 28–40px
+    "4xl": "clamp(2rem, 4vw, 3rem)",          // 32–48px
+    "5xl": "clamp(2.5rem, 5vw, 3.75rem)",     // 40–60px
+    "6xl": "clamp(3rem, 6vw, 4.5rem)",        // 48–72px
   };
   const colors = {
     forest: "text-forest-green",
@@ -87,13 +88,13 @@ export function SerifHeading({
     <h2
       className={cn(
         "font-serif",
-        sizes[size],
         `font-${weight}`,
         `text-${align}`,
         colors[color],
         "leading-tight mb-6",
         className,
       )}
+      style={{ fontSize: sizes[size] }}
     >
       {children}
     </h2>
@@ -130,9 +131,9 @@ export function SerifText({
   className,
 }: SerifTextProps) {
   const sizes = {
-    base: "text-sm md:text-base",
-    lg: "text-base md:text-lg",
-    xl: "text-lg md:text-xl",
+    base: "clamp(0.875rem, 1.5vw, 1rem)",    // 14–16px
+    lg: "clamp(1rem, 2vw, 1.25rem)",         // 16–20px
+    xl: "clamp(1.125rem, 2.5vw, 1.5rem)",    // 18–24px
   };
   const colors = {
     sage: "text-sage-600",

@@ -26,7 +26,7 @@ export function BoutiqueImage({
 }: BoutiqueImageProps) {
   const baseClasses = cn(
     "block object-cover",
-    priority ? "" : "opacity-0 transition-opacity duration-700",
+    priority ? "" : "opacity-0 transition-opacity duration-500",
     fill ? "absolute inset-0 w-full h-full" : "",
     className,
   );
