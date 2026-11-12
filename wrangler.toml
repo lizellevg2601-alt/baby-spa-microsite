@@ -11,3 +11,8 @@ directory = "out"
 pattern = "baby.twinkletoelove.com"
 custom_domain = true
 zone_name = "twinkletoelove.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "baby-spa-waitlist"
+database_id = "28a2066d-63de-4248-80b4-94b42a338fd5"
