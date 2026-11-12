@@ -3,6 +3,11 @@ import { prisma } from "@/lib/db";
 import { getAdminSession, requireAdmin } from "@/lib/auth";
 import { updateServiceSchema } from "@/lib/validations";
 
+// Required for static export: this API route is not prerendered.
+export function generateStaticParams() {
+  return [];
+}
+
 export async function PUT(request: NextRequest) {
   const session = await getAdminSession();
   const auth = requireAdmin(session);
