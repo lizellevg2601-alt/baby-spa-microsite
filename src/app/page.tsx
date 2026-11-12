@@ -368,6 +368,41 @@ export default function Home() {
         </Container>
       </SectionWrapper>
 
+      {/* Discover gifts, memberships and other ways to connect */}
+      <SectionWrapper bg="white" className="section-padding-compact border-t border-pale-sage">
+        <Container className="max-w-6xl">
+          <div className="grid items-center gap-8 md:grid-cols-[1.2fr_0.8fr] md:gap-16">
+            <div className="min-w-0">
+              <Eyebrow>Beyond the studio</Eyebrow>
+              <SerifHeading size="4xl" weight="600" align="left" color="forest" className="mt-4 mb-4">
+                Little moments, lovely extras.
+              </SerifHeading>
+              <p className="max-w-xl text-base leading-8 text-sage-600">
+                We're planning thoughtful gift boxes, take-home sensory treasures,
+                flexible class memberships, gift vouchers and special experiences
+                for families who want to keep the connection going.
+              </p>
+              <p className="mt-3 text-xs leading-6 text-sage-600">
+                A first look at what may be coming — no products or memberships are on sale yet.
+              </p>
+              <Link
+                href="/gifts-and-more"
+                className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-forest-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-forest-green-dark"
+              >
+                Explore gifts & more <span aria-hidden="true" className="ml-2">→</span>
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-3" aria-label="Planned extras">
+              {["Gift collections", "Class memberships", "Gift cards", "Little Wonders Club"].map((item) => (
+                <div key={item} className="flex min-h-28 items-center justify-center rounded-2xl border border-pale-sage bg-warm-ivory px-4 py-5 text-center">
+                  <p className="font-serif text-lg font-semibold leading-snug text-forest-green">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </SectionWrapper>
+
       {/* Section 6 — Be part of our beginning */}
       <SectionWrapper
         bg="forest"
