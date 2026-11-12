@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/experiences", label: "Experiences" },
+  { href: "/gifts-and-more", label: "Gifts & More" },
   { href: "/about", label: "Our Story" },
   { href: "/contact", label: "Contact" },
 ];
@@ -181,6 +182,11 @@ export function ClientFooter() {
               Info
             </h3>
             <ul className="space-y-2.5 text-sm text-sage leading-6">
+              <li>
+                <Link href="/gifts-and-more" className="hover:text-forest-green transition-colors">
+                  Gifts, memberships & more
+                </Link>
+              </li>
               <li>
                 <Link href="/about" className="hover:text-forest-green transition-colors">
                   Our Story
