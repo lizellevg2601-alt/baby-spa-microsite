@@ -1,12 +1,22 @@
-export const dynamic = "force-dynamic"
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { getAdminSession, requireAdmin } from "@/lib/auth";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-12-18.acacia",
-});
+let _stripe: Stripe | null = null;
+
+function getStripe(): Stripe {
+  if (!_stripe) {
+    const secretKey = process.env.STRIPE_SECRET_KEY;
+    if (!secretKey) {
+      throw new Error("STRIPE_SECRET_KEY is not configured");
+    }
+    _stripe = new Stripe(secretKey, {
+      apiVersion: "2024-12-18.acacia",
+    });
+  }
+  return _stripe;
+}
 
 export async function GET(request: NextRequest) {
   const session = await getAdminSession();
@@ -71,7 +81,7 @@ export async function POST(request: NextRequest) {
       // If paid, create a refund via Stripe
       if (booking.status === "CONFIRMED" && booking.payment?.stripePaymentIntentId) {
         try {
-          await stripe.refunds.create({
+          await getStripe().refunds.create({
             payment_intent: booking.payment.stripePaymentIntentId,
           });
         } catch (stripeErr) {

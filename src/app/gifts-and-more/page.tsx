@@ -86,7 +86,7 @@ export default function GiftsAndMorePage() {
               More little moments to <em className="font-normal text-rose-pink-dark">treasure.</em>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-sage-700 md:text-lg">
-              From thoughtful baby gifts to class memberships and special gatherings, we're dreaming up lovely ways to keep the connection going beyond the studio.
+              From thoughtful baby gifts to class memberships and special gatherings, we&apos;re dreaming up lovely ways to keep the connection going beyond the studio.
             </p>
             <p className="mt-4 max-w-xl text-sm leading-7 text-sage-600">
               These offerings are currently being planned. Join our opening list for updates as the details are confirmed.
@@ -137,7 +137,7 @@ export default function GiftsAndMorePage() {
           <SectionLabel>A little routine to look forward to</SectionLabel>
           <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-forest-green md:text-5xl">Belong to the Wonder Club.</h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-sage-600">
-            We're exploring flexible monthly class credits to make regular visits simpler. No unlimited sessions, no complicated commitments.
+            We&apos;re exploring flexible monthly class credits to make regular visits simpler. No unlimited sessions, no complicated commitments.
           </p>
           <div className="mt-9 grid gap-5 md:grid-cols-3">
             {membershipIdeas.map((plan) => (
@@ -186,7 +186,7 @@ export default function GiftsAndMorePage() {
             <SectionLabel>Give moments, not just things</SectionLabel>
             <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-forest-green md:text-5xl">An experience to remember.</h2>
             <p className="mt-4 text-base leading-8 text-sage-600">
-              We're planning digital and beautifully presented gift vouchers for classes and eligible products. Perfect for grandparents, baby showers and thoughtful surprises.
+              We&apos;re planning digital and beautifully presented gift vouchers for classes and eligible products. Perfect for grandparents, baby showers and thoughtful surprises.
             </p>
             <p className="mt-4 text-sm leading-7 text-sage-600">Gift card purchases and redemption are not available yet. Terms will be published before they go on sale.</p>
           </div>
@@ -202,7 +202,7 @@ export default function GiftsAndMorePage() {
               A simple digital stamp-card idea to celebrate the little moments you share with us. Our proposed reward: something lovely after ten paid visits.
             </p>
             <p className="mt-3 text-sm leading-7 text-sage-600">
-              We're also considering a thoughtful refer-a-friend thank-you. Full rewards, eligibility and terms will be confirmed before launch.
+              We&apos;re also considering a thoughtful refer-a-friend thank-you. Full rewards, eligibility and terms will be confirmed before launch.
             </p>
           </div>
           <div className="rounded-[2rem] bg-pale-sage p-8 md:p-10">

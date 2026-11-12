@@ -45,7 +45,7 @@ export default function CancelPage() {
               <div>
                 <p className="font-semibold text-sage-800">Contact us</p>
                 <p className="text-xs text-sage-500">
-                  If you believe this was an error, get in touch and we'll help.
+                  If you believe this was an error, get in touch and we&apos;ll help.
                 </p>
               </div>
             </div>

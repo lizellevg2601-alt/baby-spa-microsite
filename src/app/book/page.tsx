@@ -72,6 +72,28 @@ export default function BookingPage() {
       .catch(() => setBookingsEnabled(false));
   }, []);
 
+  const minDate = useCallback(() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 1);
+    return d.toISOString().split("T")[0];
+  }, []);
+
+  const loadSlots = useCallback(async (dateStr: string) => {
+    setError("");
+    try {
+      const res = await fetch(
+        `/api/booking/slots?serviceId=${service!.id}&date=${encodeURIComponent(dateStr)}`,
+        { cache: "no-store" },
+      );
+      if (!res.ok) throw new Error("Failed to load slots");
+      const data = await res.json();
+      setSlots(data.slots || []);
+    } catch (err) {
+      setError("Unable to load available times. Please try again.");
+      console.error(err);
+    }
+  }, [service]);
+
   if (bookingsEnabled === false) {
     return (
       <div className="flex flex-col min-h-screen bg-ivory" id="main-content">
@@ -116,28 +138,6 @@ export default function BookingPage() {
       </div>
     );
   }
-
-  const minDate = useCallback(() => {
-    const d = new Date();
-    d.setDate(d.getDate() + 1);
-    return d.toISOString().split("T")[0];
-  }, []);
-
-  const loadSlots = useCallback(async (dateStr: string) => {
-    setError("");
-    try {
-      const res = await fetch(
-        `/api/booking/slots?serviceId=${service!.id}&date=${encodeURIComponent(dateStr)}`,
-        { cache: "no-store" },
-      );
-      if (!res.ok) throw new Error("Failed to load slots");
-      const data = await res.json();
-      setSlots(data.slots || []);
-    } catch (err) {
-      setError("Unable to load available times. Please try again.");
-      console.error(err);
-    }
-  }, [service?.id]);
 
   const handleCreateBooking = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -317,7 +317,7 @@ function ServiceSelectionStep({ onSelect }: { onSelect: (s: typeof SERVICES[numb
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-bold text-sage-900 mb-2">Choose an experience</h2>
-        <p className="text-sage-600">Select the session you'd like to book for you and your baby.</p>
+        <p className="text-sage-600">Select the session you&apos;d like to book for you and your baby.</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-4">
@@ -651,7 +651,7 @@ function DetailsStep({
           className="w-4 h-4 rounded border-sage-300 text-sage-700 focus:ring-sage-500"
         />
         <label htmlFor="marketing-consent" className="text-sm text-sage-600 leading-relaxed">
-          I'd like to receive updates about new classes and events (optional)
+          I&apos;d like to receive updates about new classes and events (optional)
         </label>
       </div>
 

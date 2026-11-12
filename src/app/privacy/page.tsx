@@ -37,7 +37,7 @@ export default function PrivacyPage() {
             </h2>
             <p>
               When you make a booking, we collect your name, email address and
-              optional phone number. We do not ask for your baby's health
+              optional phone number. We do not ask for your baby&apos;s health
               details or other sensitive information as part of the generic
               booking form.
             </p>
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
             </h2>
             <p>
               Payments are processed by Stripe. We do not store your card
-              details. Stripe's own privacy policy applies to payment data.
+              details. Stripe&apos;s own privacy policy applies to payment data.
             </p>
 
             <h2 className="text-xl font-bold text-sage-800 mt-8 mb-3">

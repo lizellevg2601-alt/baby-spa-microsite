@@ -18,7 +18,7 @@ vi.mock("@/lib/db", () => ({
     config: {
       findUnique: mockConfigFind,
     },
-    $transaction: vi.fn(async (callback: any) => {
+    $transaction: vi.fn(async (callback: (mock: unknown) => unknown) => {
       return callback(prismaMock);
     }),
   },

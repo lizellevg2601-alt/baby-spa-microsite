@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic"
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -47,7 +46,7 @@ export async function POST(request: NextRequest) {
     const { email, marketingConsent } = parsed.data;
 
     // Use Cloudflare D1 binding (available as env.DB in Pages Functions)
-    const db = (process.env as any)?.DB;
+    const db = (process.env as { DB?: unknown })?.DB;
     if (db) {
       try {
         await db

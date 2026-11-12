@@ -28,7 +28,7 @@ export default function CancellationPage() {
           <div className="prose prose-sage max-w-none text-sage-600 space-y-6">
             <p>
               We understand that plans change, especially with young children.
-              Here's how cancellations, rescheduling and refunds work at
+              Here&apos;s how cancellations, rescheduling and refunds work at
               Twinkle Toe Love.
             </p>
 
@@ -73,7 +73,7 @@ export default function CancellationPage() {
             </h2>
             <p>
               If we need to cancel a session (for example, due to instructor
-              illness or venue issues), we'll offer you an alternative date or
+              illness or venue issues), we&apos;ll offer you an alternative date or
               a full refund.
             </p>
 
@@ -82,7 +82,7 @@ export default function CancellationPage() {
             </h2>
             <p>
               Contact us at bookings@baby.twinkletoelove.com with your booking
-              reference. We'll confirm your cancellation and any refund by
+              reference. We&apos;ll confirm your cancellation and any refund by
               email.
             </p>
 

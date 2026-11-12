@@ -36,7 +36,7 @@ export default function SuccessPage({
               <div>
                 <p className="font-semibold text-sage-800">Awaiting payment confirmation</p>
                 <p className="text-xs text-sage-500">
-                  We're verifying your Stripe payment. You'll receive a confirmation email shortly.
+                  We&apos;re verifying your Stripe payment. You&apos;ll receive a confirmation email shortly.
                 </p>
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function SuccessPage({
               <div>
                 <p className="font-semibold text-sage-800">Join us at the studio</p>
                 <p className="text-xs text-sage-500">
-                  Arrive 5 minutes before your session. We'll be ready to welcome you and your baby.
+                  Arrive 5 minutes before your session. We&apos;ll be ready to welcome you and your baby.
                 </p>
               </div>
             </div>

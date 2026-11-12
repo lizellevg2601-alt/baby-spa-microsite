@@ -1,9 +1,8 @@
-export const dynamic = "force-dynamic"
 import { NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
 import type Stripe from "stripe";
 import type { PrismaClient } from "@prisma/client";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { prisma } from "@/lib/db";
 import { sendEmail, bookingConfirmationEmail } from "@/lib/email";
 
@@ -18,12 +17,12 @@ export async function POST(request: NextRequest) {
   let event: Stripe.Event;
 
   try {
-    event = stripe.webhooks.constructEvent(
+    event = getStripe().webhooks.constructEvent(
       body,
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!,
     );
-  } catch (error: any) {
+  } catch (error) {
     console.error("[WEBHOOK SIGNATURE ERROR]", error.message);
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
@@ -82,7 +81,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ received: true });
-  } catch (error: any) {
+  } catch (error) {
     console.error("[WEBHOOK HANDLER ERROR]", error);
     return NextResponse.json(
       { error: "Webhook handler failed" },

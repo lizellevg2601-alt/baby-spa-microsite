@@ -1,7 +1,6 @@
-export const dynamic = "force-dynamic"
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { createBookingSchema } from "@/lib/validations";
 import { sendEmail, bookingConfirmationEmail } from "@/lib/email";
 import { getAdminSession } from "@/lib/auth";
@@ -133,7 +132,7 @@ export async function POST(request: NextRequest) {
     const { slot, reservation, totalPence, holdsUntil } = result;
 
     // Create Stripe Checkout Session (server-side only, secret key never exposed)
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [
@@ -178,7 +177,7 @@ export async function POST(request: NextRequest) {
       totalPence,
       currency: "gbp",
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error("[BOOKING API ERROR]", error);
 
     if (error.message === "SLOT_NOT_FOUND") {

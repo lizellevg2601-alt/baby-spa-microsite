@@ -5,6 +5,18 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 
+type Booking = {
+  id: string;
+  reference: string;
+  service?: { name: string };
+  slot?: { startDateTime: string };
+  pairsCount: number;
+  guardianName: string;
+  guardianEmail: string;
+  status: string;
+  totalPence: number;
+};
+
 export default function AdminDashboardPage() {
   const [admin, setAdmin] = useState<{ email: string } | null>(null);
   const [loading, setLoading] = useState(true);
@@ -12,7 +24,7 @@ export default function AdminDashboardPage() {
     bookingsEnabled: boolean;
     paymentsMode: string;
   } | null>(null);
-  const [bookings, setBookings] = useState<any[]>([]);
+  const [bookings, setBookings] = useState<Booking[]>([]);
 
   useEffect(() => {
     let mounted = true;

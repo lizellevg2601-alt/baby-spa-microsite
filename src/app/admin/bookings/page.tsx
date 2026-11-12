@@ -5,9 +5,21 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+type Booking = {
+  id: string;
+  reference: string;
+  service?: { name: string };
+  slot?: { startDateTime: string };
+  pairsCount: number;
+  guardianName: string;
+  guardianEmail: string;
+  status: string;
+  totalPence: number;
+};
+
 export default function AdminBookingsPage() {
   const [admin, setAdmin] = useState<{ email: string } | null>(null);
-  const [bookings, setBookings] = useState<any[]>([]);
+  const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

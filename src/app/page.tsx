@@ -341,7 +341,7 @@ export default function Home() {
               color="forest"
               className="mb-6"
             >
-              Beautiful little touches we're planning for your visits.
+              Beautiful little touches we&apos;re planning for your visits.
             </SerifHeading>
           </div>
 
@@ -378,7 +378,7 @@ export default function Home() {
                 Little moments, lovely extras.
               </SerifHeading>
               <p className="max-w-xl text-base leading-8 text-sage-600">
-                We're planning thoughtful gift boxes, take-home sensory treasures,
+                We&apos;re planning thoughtful gift boxes, take-home sensory treasures,
                 flexible class memberships, gift vouchers and special experiences
                 for families who want to keep the connection going.
               </p>
