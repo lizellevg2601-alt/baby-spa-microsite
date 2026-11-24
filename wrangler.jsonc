@@ -1,0 +1,32 @@
+// Cloudflare Workers configuration for Twinkle Toe Love Baby Wellness Spa
+{
+  "name": "baby-spa-microsite",
+  "compatibility_date": "2026-11-13",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "c3974c9f555d3c107ece3f4f48defb23",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "baby-spa-waitlist",
+      "database_id": "28a2066d-63de-4248-80b4-94b42a338fd5"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "baby.twinkletoelove.com",
+      "custom_domain": true,
+      "zone_name": "twinkletoelove.com"
+    }
+  ],
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "main": "dist/server/ssr/index.js",
+  "assets": {
+    "directory": "dist/client",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none"
+  }
+}
